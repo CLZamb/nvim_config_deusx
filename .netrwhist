@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/cristofher'
+let g:netrw_dirhist_2='/Users'
+let g:netrw_dirhist_3='/Users/cristofher/Desktop/practice/ruby/well_grounded_rubist'
+let g:netrw_dirhist_4='/Users/cristofher/Desktop/practice/ruby'
+let g:netrw_dirhist_5='/Users/cristofher/Desktop/practice/vim-ruby-generate'
+let g:netrw_dirhist_6='/Users/cristofher/Desktop/practice/vim-ruby-generate/plugin'
+let g:netrw_dirhist_7='/Users/cristofher/Desktop/practice/vim-ruby-generate'
+let g:netrw_dirhist_8='/Users/cristofher/Desktop/practice/vim-ruby-generate/plugin'
