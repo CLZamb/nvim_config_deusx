@@ -1,0 +1,34 @@
+{
+    "diagnostics.globals": [
+        "vim"
+    ],
+    "workspace.library": [
+        "/home/deusxdwm/.config/nvim",
+        "/home/deusxdwm/.local/share/nvim/lazy/lazy.nvim",
+        "/home/deusxdwm/.local/share/nvim/lazy/cmp-nvim-lsp",
+        "/home/deusxdwm/.local/share/nvim/lazy/nvim-notify",
+        "/home/deusxdwm/.local/share/nvim/lazy/nvim-navic",
+        "/home/deusxdwm/.local/share/nvim/lazy/lsp_signature.nvim",
+        "/home/deusxdwm/.local/share/nvim/lazy/nvim-lspconfig",
+        "/home/deusxdwm/.local/share/nvim/lazy/mason-lspconfig.nvim",
+        "/home/deusxdwm/.local/share/nvim/lazy/mason.nvim",
+        "/home/deusxdwm/.local/share/nvim/lazy/symbols-outline.nvim",
+        "/home/deusxdwm/.local/share/nvim/lazy/trouble.nvim",
+        "/home/deusxdwm/.local/share/nvim/lazy/plenary.nvim",
+        "/home/deusxdwm/.local/share/nvim/lazy/gitsigns.nvim",
+        "/home/deusxdwm/.local/share/nvim/lazy/vim-surround",
+        "/home/deusxdwm/.local/share/nvim/lazy/nvim-web-devicons",
+        "/home/deusxdwm/.local/share/nvim/lazy/bufferline.nvim",
+        "/home/deusxdwm/.local/share/nvim/lazy/indentLine",
+        "/home/deusxdwm/.local/share/nvim/lazy/tcomment_vim",
+        "/home/deusxdwm/.local/share/nvim/lazy/edge",
+        "/usr/share/nvim/runtime",
+        "/usr/lib/nvim",
+        "/home/deusxdwm/.local/state/nvim/lazy/readme",
+        "/home/deusxdwm/.local/share/nvim/lazy/cmp-nvim-lsp/after",
+        "/home/deusxdwm/.local/share/nvim/lazy/indentLine/after",
+        "/home/deusxdwm/.local/share/nvim/lazy/edge/after",
+        "${3rd}/luassert/library"
+    ],
+    "workspace.checkThirdParty": false
+}
