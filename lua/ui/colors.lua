@@ -33,6 +33,8 @@ M.colors = {
    lightbg2 = "#262a32",
    pmenu_bg = "#A3BE8C",
    folder_bg = "#61afef",
+   noice_bg = "#30343c",
+   noice_fg = "#30343c",
 }
 
 M.get = function()

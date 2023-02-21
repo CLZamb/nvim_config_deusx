@@ -1,7 +1,7 @@
 local wk = require("which-key")
 
 wk.register({
-  ['W'] = {
+  ['w'] = {
     name = '+Windows ' ,
     ["d"] = {"<C-W>c" , "delete-window"},
     ["v"] = {"<C-W>v" , "layout-double-columns"},
@@ -13,6 +13,9 @@ wk.register({
     ["s"] = {"<C-W>s" , "split-window-below"},
     ["V"] = {"<C-W>v" , "split-window-below"},
     ["l"] = {"<C-W>v<C-W>r" , "split-window-left"},
-    ["?"] = {"Windows" , "fzf-window"},
+    ["r"] = {"<C-W>r" , "rotate window downwards/rightwards"},
+    ["R"] = {"<C-W>R" , "rotate window upwards/leftwards"},
+
   },
 }, { prefix = '<leader>', silent = true,})
+

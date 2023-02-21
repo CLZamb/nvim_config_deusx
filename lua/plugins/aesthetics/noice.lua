@@ -36,18 +36,16 @@ return {
                 width = 50,
               },
               border = {
-                style = "none",
-                padding = { 1, 2 },
+                style = "rounded",
+                -- height, width
+                padding = { 0, 1 },
               },
               filter_options = {},
-              win_options = {
-                winhighlight = { Normal = "NormalFloat", FloatBorder = "FloatBorder" },
-              },
             },
             popupmenu = {
               relative = "editor",
               position = {
-                row = 10,
+                row = 11,
                 col = "50%",
               },
               size = {
@@ -60,7 +58,7 @@ return {
                 padding = { 0, 1 },
               },
               win_options = {
-                winhighlight = { Normal = "Normal", FloatBorder = "NoiceCmdlinePopupBorder" },
+                winhighlight = { Normal = "NormalFloat", FloatBorder = "FloatBorder" },
               },
             },
           },
@@ -71,7 +69,7 @@ return {
       },
       cmdline = {
         format = {
-          cmdline = { icon = " " , title = "" },
+          cmdline = { icon = "  " , title = "" },
         }
       }
     })

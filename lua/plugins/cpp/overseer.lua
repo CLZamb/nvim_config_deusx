@@ -14,6 +14,7 @@ return {
   config = function(_, _)
     local overseer = require("overseer")
     overseer.setup({
+      -- auto_detect_success_color = true,
       task_list = {
         direction = 'right',
         -- Set keymap to false to remove default behavior
@@ -27,7 +28,8 @@ return {
       preload_components = {
         'custom.open_trouble_on_failed',
         'custom.close_trouble',
-        'custom.open_terminal'
+        -- 'custom.open_terminal',
+        -- 'custom.open_terminal_on_failed',
       },
 
       component_aliases = {
@@ -43,7 +45,7 @@ return {
             virtual_text = false,
           },
           'on_result_diagnostics_quickfix',
-          'on_result_notify',
+          -- 'on_result_notify',
         },
       },
         -- templates = { "builtin", "cmake" },

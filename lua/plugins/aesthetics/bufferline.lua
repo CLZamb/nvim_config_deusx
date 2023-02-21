@@ -12,7 +12,7 @@ return {
     highlights = {
       tab_selected = {
         fg = colors.grey,
-        bg = colors.green,
+        bg = colors.blue,
       },
       tab = {
         fg = colors.white,

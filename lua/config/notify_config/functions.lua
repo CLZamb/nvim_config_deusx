@@ -28,5 +28,4 @@ M.save_session_before_leave = function(session_name)
   end
 end
 
-
 return M

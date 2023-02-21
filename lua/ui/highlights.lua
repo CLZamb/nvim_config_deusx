@@ -1,7 +1,6 @@
 local cmd = vim.cmd
 local colors = require("ui.colors").get()
 
-local black = colors.black
 local black2 = colors.black2
 local blue = colors.blue
 local darker_black = colors.darker_black
@@ -19,6 +18,9 @@ local red = colors.red
 local white = colors.white
 local yellow = colors.yellow
 local one_bg3 = colors.one_bg3
+local noice_bg = colors.noice_bg
+local noice_fg = colors.noice_fg
+local endofbufferfg = one_bg
 
 local bg = function(group, col)
    cmd("hi " .. group .. " guibg=" .. col)
@@ -45,7 +47,7 @@ cmd"hi clear CursorLine"
 fg("cursorlinenr", white)
 
 -- same it bg, so it doesn't appear
-fg("EndOfBuffer", black)
+fg("EndOfBuffer", endofbufferfg)
 
 -- For floating windows
 fg("FloatBorder", blue)
@@ -140,8 +142,9 @@ fg("CmpItemKindMethod", purple_method)
 -- fg("CmpItemKindProperty", pink)
 -- fg("CmpItemKindUnit", front)
 -- noice
--- bg("NoiceVirtualText", one_bg)
-
+-- bg("NoiceCmdline", purple_method)
+bg("NoiceCmdlinePopup", noice_bg)
+fg_bg("NoiceCmdlinePopupBorder", noice_fg, noice_bg)
 -- vim.api.nvim_set_hl(0, "NoiceCmdline", { fg = green, bg = red, blend = 0 })
 -- vim.api.nvim_set_hl(0, "NoiceCmdlineIcon", { fg = green, bg = red, blend = 0 })
 -- vim.api.nvim_set_hl(0, "NoiceCmdlineIconSearch", { fg = green, bg = red, blend = 0 })

@@ -54,7 +54,7 @@ local auto_save_session_group = create_augroup("vim-auto-save-session", { clear 
 
 create_autocmd("VimLeave", {
   callback = function()
-    require('notify_config.functions').save_session_before_leave(vim.v.this_session)
+    require('config.notify_config.functions').save_session_before_leave(vim.v.this_session)
   end,
   group = auto_save_session_group,
 })

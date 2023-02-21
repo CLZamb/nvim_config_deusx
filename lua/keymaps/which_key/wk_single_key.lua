@@ -20,11 +20,16 @@ wk.register({
   ["0"] = { ":BufferLinePick<CR>", "which_key_ignore"},
   -- search erros/warnings on workspace diagnostic
   ["d"] = {'<cmd>TroubleToggle workspace_diagnostics<cr>' , 'Trouble toggle'},
-
   -- Close current buffer without closing the windows
   ["q"] = {":Bclose!<cr>", "which_key_ignore"},
   ['n'] = {":NvimTreeToggle<cr>", "Nvim Toggle"},
   -- find files
   ['f'] = {"<cmd>Telescope find_files<cr>",  "Telescope file finder" },
+  -- build and run vscode tasks
+  ['c'] = {"<cmd>CMakeBuildAndRun<CR>",  "which_key_ignore" },
+  ['r'] = {"<cmd>CMakeRun<CR>",  "which_key_ignore" },
+  ['b'] = {"<cmd>CMakeBuild<CR>",  "which_key_ignore" },
+  -- test cpp
+  ['g'] = {"<cmd>GTest<CR>",  "which_key_ignore" },
 
 }, { prefix = '<leader>', silent = true,})

@@ -39,7 +39,7 @@ local options = {
     smarttab = true,
     ------Display tabs and trailing spaces visually----
     list = true,
-    listchars = 'trail:·,nbsp:◇,tab:→ ,extends:▸,precedes:◂',
+    listchars = 'trail:·,nbsp:◇,tab:→ ,extends:▸,precedes:◂,eol:󰅀,',
     linebreak = true,
     --------------------- Folds -----------------------
     foldmethod = 'indent', -- fold based on indent

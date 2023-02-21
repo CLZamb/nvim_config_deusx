@@ -8,7 +8,7 @@ return {
     },
 
     config = function(_, _)
-      local servers = { 'rust_analyzer', 'cmake', 'lua_ls', 'tsserver', 'html', 'cssls' }
+      local servers = { 'clangd', 'rust_analyzer', 'cmake', 'lua_ls', 'tsserver', 'html', 'cssls' }
       local nvim_lsp = require('lspconfig')
       local cfg = require('config.lsp.general_config')
 

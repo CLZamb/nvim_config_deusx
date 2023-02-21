@@ -1,5 +1,5 @@
 return {
-  'famiu/feline.nvim',
+  'freddiehaddad/feline.nvim',
 
   config = function(_, _)
     local colors = require("ui.colors").get()
@@ -366,7 +366,7 @@ components.active[3][6] = {
   provider = function()
     local current_column = vim.fn.col "."
 
-    return "col:" .. current_column .. " "
+    return "Col " .. current_column .. " "
   end,
 
   enabled = shortline or function(winid)
