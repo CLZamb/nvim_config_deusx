@@ -6,14 +6,14 @@ local function get_file_name(url)
   return url:match("^.+/(.+)$")
 end
 
-M.loaded_session = function() 
+M.loaded_session = function()
   local session_name = get_file_name(vim.v.this_session)
   if session_name ~= ' ' then
     async.run(function()
       notify("Session \"".. session_name .. "\" has been loaded", "info", {
         title = "Session",
       }).close()
-    end)
+    end,_)
   end
 end
 

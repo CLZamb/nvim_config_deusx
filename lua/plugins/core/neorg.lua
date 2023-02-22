@@ -1,10 +1,14 @@
 return {
   "nvim-neorg/neorg",
+
   dependencies = {
     'nvim-lua/plenary.nvim' ,
   },
+
   ft = 'norg',
+
   build = ':Neorg sync-parsers',
+
   opts = {
     load = {
       ['core.defaults'] = {}, -- Loads default behaviour
