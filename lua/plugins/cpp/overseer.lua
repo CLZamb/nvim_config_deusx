@@ -11,6 +11,8 @@ return {
 
   ft = { 'cpp', 'h', 'hpp' },
 
+  verylazy = true,
+
   config = function(_, _)
     local overseer = require("overseer")
     overseer.setup({

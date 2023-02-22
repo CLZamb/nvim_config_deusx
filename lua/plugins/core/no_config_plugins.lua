@@ -22,4 +22,5 @@ return {
   {'akinsho/toggleterm.nvim', config = true},
   {'saadparwaiz1/cmp_luasnip', dependencies = {'hrsh7th/nvim-cmp'}},
   {'knubie/vim-kitty-navigator'},
+  {'kdheepak/lazygit.nvim'},
 }

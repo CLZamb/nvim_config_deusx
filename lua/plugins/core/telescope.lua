@@ -5,9 +5,6 @@ return {
     'nvim-lua/plenary.nvim',
     'nvim-telescope/telescope-fzy-native.nvim',
     'nvim-telescope/telescope-file-browser.nvim',
-    {'nvim-telescope/telescope-dap.nvim', lazy = true},
-    {'rmagatti/session-lens', lazy = true},
-    'folke/trouble.nvim',
   },
 
   config = function(_, _)
@@ -80,10 +77,7 @@ return {
           }
 
           require('telescope').load_extension('fzy_native')
-          require('telescope').load_extension('notify')
           require('telescope').load_extension('file_browser')
-          require("telescope").load_extension('session-lens')
-          -- require('telescope').load_extension('dap')
 
           local builtin = require 'telescope.builtin'
           local themes = require 'telescope.themes'

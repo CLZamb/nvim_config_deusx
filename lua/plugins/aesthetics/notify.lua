@@ -1,7 +1,12 @@
 return {
   'rcarriga/nvim-notify',
 
+  dependencies = {
+    'nvim-telescope/telescope.nvim',
+  },
+
   config = function(_, _)
+    require('telescope').load_extension('notify')
     vim.notify = require("notify")
     vim.notify.setup({
       -- Animation style (see below for details)

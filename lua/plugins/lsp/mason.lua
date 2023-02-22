@@ -6,8 +6,6 @@ return {
     'williamboman/mason-lspconfig.nvim',
   },
 
-  cmd = { "Mason", "MasonInstall" },
-
   config = function(_, _)
     require("mason").setup()
     require("mason-lspconfig").setup()

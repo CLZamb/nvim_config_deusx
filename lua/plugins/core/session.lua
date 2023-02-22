@@ -1,10 +1,14 @@
 return {
   'rmagatti/auto-session',
 
+  dependencies = {
+    'nvim-telescope/telescope.nvim',
+    'rmagatti/session-lens',
+  },
+
   lazy = true,
 
   config = function(_, _)
-    vim.o.sessionoptions="curdir,resize,buffers,tabpages,winsize,winpos,terminal"
     require('auto-session').setup {
       log_level = 'info',
 
@@ -50,5 +54,7 @@ return {
       },
       -- auto_session_root_dir = vim.fn.getenv("HOME") .. "/.vim/sessions/",
     }
+
+    require('telescope').load_extension('session-lens')
   end
 }

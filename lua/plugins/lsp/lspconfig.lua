@@ -15,7 +15,5 @@ return {
       for _, lsp in ipairs(servers) do
         nvim_lsp[lsp].setup(cfg)
       end
-      -- vim.o.completeopt = 'menuone,noselect'
     end
 }
--- %E%f:%l:%c:\ error:\ %m,%Z%m,%W%f:%l:%c:\ warning:\ %m,%Z%m,%N%f:%l%c:\ note:\ %m,%Z%m

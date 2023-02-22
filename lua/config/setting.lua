@@ -14,6 +14,7 @@ g.session_last_session = "last_session"
 -- cpp run command to
 -- tells the shell to use 16 24bit colors
 o.termguicolors = true
+o.sessionoptions="curdir,resize,buffers,tabpages,winsize,winpos,terminal"
 -- disable netrw at the very start of your init.lua (strongly advised) f
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1

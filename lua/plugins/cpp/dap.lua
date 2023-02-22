@@ -3,12 +3,15 @@ return {
 
   dependencies = {
     'rcarriga/nvim-dap-ui',
+    'nvim-telescope/telescope.nvim',
+    'nvim-telescope/telescope-dap.nvim',
   },
 
   cmd = "DapContinue",
 
   config = function(_, _)
     local dap = require('dap')
+    require('telescope').load_extension('dap')
 
     dap.adapters.cppdbg = {
       id = 'cppdbg',
