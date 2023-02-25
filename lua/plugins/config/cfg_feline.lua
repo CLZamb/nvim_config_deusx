@@ -1,76 +1,78 @@
-return {
-  'freddiehaddad/feline.nvim',
+local Components = {
+  -- Initialize the components table
+  active = {},
+  inactive = {},
+}
 
-  config = function(_, _)
-    local colors = require("ui.colors").get()
-    local lsp_severity = vim.diagnostic.severity
+local colors = require("ui.colors").get()
+local lsp_severity = vim.diagnostic.severity
 
-    local icon_styles = {
-      default = {
-        left = "",
-        right = " ",
-        main_icon = "  ",
-        vi_mode_icon = " ",
-        position_icon = " ",
-      },
-      arrow = {
-        left = "",
-        right = "",
-        main_icon = "  ",
-        vi_mode_icon = " ",
-        position_icon = " ",
-      },
+local icon_styles = {
+  default = {
+    left = "",
+    right = " ",
+    main_icon = "  ",
+    vi_mode_icon = " ",
+    position_icon = " ",
+  },
+  arrow = {
+    left = "",
+    right = "",
+    main_icon = "  ",
+    vi_mode_icon = " ",
+    position_icon = " ",
+  },
 
-      block = {
-        left = " ",
-        right = " ",
-        main_icon = "   ",
-        vi_mode_icon = "  ",
-        position_icon = "  ",
-      },
+  block = {
+    left = " ",
+    right = " ",
+    main_icon = "   ",
+    vi_mode_icon = "  ",
+    position_icon = "  ",
+  },
 
-      round = {
-        left = "",
-        right = "",
-        main_icon = "  ",
-        vi_mode_icon = " ",
-        position_icon = " ",
-      },
+  round = {
+    left = "",
+    right = "",
+    main_icon = "  ",
+    vi_mode_icon = " ",
+    position_icon = " ",
+  },
 
-      slant = {
-        left = " ",
-        right = " ",
-        main_icon = "  ",
-        vi_mode_icon = " ",
-        position_icon = " ",
-      },
-    }
+  slant = {
+    left = " ",
+    right = " ",
+    main_icon = "  ",
+    vi_mode_icon = " ",
+    position_icon = " ",
+  },
+}
 
-    local mode_colors = {
-      ["n"] = { "NORMAL", colors.red },
-      ["no"] = { "N-PENDING", colors.red },
-      ["i"] = { "INSERT", colors.dark_purple },
-      ["ic"] = { "INSERT", colors.dark_purple },
-      ["t"] = { "TERMINAL", colors.green },
-      ["v"] = { "VISUAL", colors.cyan },
-      ["V"] = { "V-LINE", colors.cyan },
-      [""] = { "V-BLOCK", colors.cyan },
-      ["R"] = { "REPLACE", colors.orange },
-      ["Rv"] = { "V-REPLACE", colors.orange },
-      ["s"] = { "SELECT", colors.nord_blue },
-      ["S"] = { "S-LINE", colors.nord_blue },
-      [""] = { "S-BLOCK", colors.nord_blue },
-      ["c"] = { "COMMAND", colors.pink },
-      ["cv"] = { "COMMAND", colors.pink },
-      ["ce"] = { "COMMAND", colors.pink },
-      ["r"] = { "PROMPT", colors.teal },
-      ["rm"] = { "MORE", colors.teal },
-      ["r?"] = { "CONFIRM", colors.teal },
-      ["!"] = { "SHELL", colors.green },
-    }
+local mode_colors = {
+  ["n"] = { "NORMAL", colors.red },
+  ["no"] = { "N-PENDING", colors.red },
+  ["i"] = { "INSERT", colors.dark_purple },
+  ["ic"] = { "INSERT", colors.dark_purple },
+  ["t"] = { "TERMINAL", colors.green },
+  ["v"] = { "VISUAL", colors.cyan },
+  ["V"] = { "V-LINE", colors.cyan },
+  [""] = { "V-BLOCK", colors.cyan },
+  ["R"] = { "REPLACE", colors.orange },
+  ["Rv"] = { "V-REPLACE", colors.orange },
+  ["s"] = { "SELECT", colors.nord_blue },
+  ["S"] = { "S-LINE", colors.nord_blue },
+  [""] = { "S-BLOCK", colors.nord_blue },
+  ["c"] = { "COMMAND", colors.pink },
+  ["cv"] = { "COMMAND", colors.pink },
+  ["ce"] = { "COMMAND", colors.pink },
+  ["r"] = { "PROMPT", colors.teal },
+  ["rm"] = { "MORE", colors.teal },
+  ["r?"] = { "CONFIRM", colors.teal },
+  ["!"] = { "SHELL", colors.green },
+}
 
-    -- local chad_mode_hl = function()
-    --   return {
+-- local chad_mode_hl = function()
+  --   return {
     --     fg = mode_colors[vim.fn.mode()][2],
     --     bg = colors.one_bg,
     --   }
@@ -102,11 +104,11 @@ return {
     hidden = {
       "help",
       "dashboard",
-      "NvimTree",
+      -- "NvimTree",
       "terminal",
     },
     -- show short statusline on small screens
-    shortline = true,
+    -- shortline = true,
     shown = {},
     -- default, round , slant , block , arrow
     style = "default",
@@ -118,18 +120,12 @@ return {
   local shortline = config.shortline == false and true
   local lsp = require "feline.providers.lsp"
 
-  -- Initialize the components table
-  local components = {
-    active = {},
-    inactive = {},
-  }
-
   -- Initialize left, mid and right
-  table.insert(components.active, {})
-  table.insert(components.active, {})
-  table.insert(components.active, {})
+  table.insert(Components.active, {})
+  table.insert(Components.active, {})
+  table.insert(Components.active, {})
 
-  components.active[1][1] = {
+  Components.active[1][1] = {
     provider = statusline_style.main_icon,
 
     hl = function()
@@ -138,7 +134,6 @@ return {
         bg = mode_colors[vim.fn.mode()][2],
       }
     end,
-
 
     right_sep = { str = statusline_style.right,
     hl = function()
@@ -150,7 +145,7 @@ return {
   },
 }
 
-components.active[1][2] = {
+Components.active[1][2] = {
   provider = function()
     local dir_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
     return "  " .. dir_name .. " "
@@ -179,7 +174,7 @@ components.active[1][2] = {
   },
 }
 
-components.active[1][3] = {
+Components.active[1][3] = {
   provider = {
     name = "file_info",
   },
@@ -209,7 +204,7 @@ components.active[1][3] = {
   },
 }
 
-components.active[1][4] = {
+Components.active[1][4] = {
   provider = "diagnostic_errors",
   enabled = function()
     return lsp.diagnostics_exist(lsp_severity.ERROR)
@@ -219,7 +214,7 @@ components.active[1][4] = {
   icon = "  ",
 }
 
-components.active[1][5] = {
+Components.active[1][5] = {
   provider = "diagnostic_warnings",
   enabled = function()
     return lsp.diagnostics_exist(lsp_severity.WARN)
@@ -228,7 +223,7 @@ components.active[1][5] = {
   icon = "  ",
 }
 
-components.active[1][6] = {
+Components.active[1][6] = {
   provider = "diagnostic_hints",
   enabled = function()
     return lsp.diagnostics_exist(lsp_severity.HINT)
@@ -237,7 +232,7 @@ components.active[1][6] = {
   icon = "  ",
 }
 
-components.active[1][7] = {
+Components.active[1][7] = {
   provider = "diagnostic_info",
   enabled = function()
     return lsp.diagnostics_exist(lsp_severity.INFO)
@@ -246,13 +241,14 @@ components.active[1][7] = {
   icon = "  ",
 }
 
-components.active[2][1] = {
+Components.active[2][1] = {
   provider = function()
     local Lsp = vim.lsp.util.get_progress_messages()[1]
     if Lsp then
       local msg = Lsp.message or ""
       local percentage = Lsp.percentage or 0
       local title = Lsp.title or ""
+
       local spinners = {
         "",
         "",
@@ -261,7 +257,7 @@ components.active[2][1] = {
 
       local success_icon = {
         "",
-        "",
+        "󰗡",
         "",
       }
 
@@ -282,7 +278,7 @@ components.active[2][1] = {
   hl = { fg = colors.green },
 }
 --
-components.active[3][1] = {
+Components.active[3][1] = {
   provider = statusline_style.left,
   enabled = shortline or function(winid)
     return vim.api.nvim_win_get_width(tonumber(winid) or 0) > 90
@@ -293,7 +289,7 @@ components.active[3][1] = {
   },
 }
 
-components.active[3][2] = {
+Components.active[3][2] = {
   provider = statusline_style.left,
   enabled = shortline or function(winid)
     return vim.api.nvim_win_get_width(tonumber(winid) or 0) > 90
@@ -307,7 +303,7 @@ components.active[3][2] = {
   end,
 }
 
-components.active[3][3] = {
+Components.active[3][3] = {
   provider = statusline_style.position_icon,
   enabled = shortline or function(winid)
     return vim.api.nvim_win_get_width(tonumber(winid) or 0) > 90
@@ -321,7 +317,7 @@ components.active[3][3] = {
   end,
 }
 
-components.active[3][4] = {
+Components.active[3][4] = {
   provider = function()
     local current_line = vim.fn.line "."
     local total_line = vim.fn.line "$"
@@ -339,7 +335,6 @@ components.active[3][4] = {
     return vim.api.nvim_win_get_width(tonumber(winid) or 0) > 90
   end,
 
-
   hl = function()
     return {
       fg = mode_colors[vim.fn.mode()][2],
@@ -348,7 +343,7 @@ components.active[3][4] = {
   end,
 }
 
-components.active[3][5] = {
+Components.active[3][5] = {
   provider = statusline_style.left,
   enabled = shortline or function(winid)
     return vim.api.nvim_win_get_width(tonumber(winid) or 0) > 70
@@ -362,7 +357,7 @@ components.active[3][5] = {
   end,
 }
 
-components.active[3][6] = {
+Components.active[3][6] = {
   provider = function()
     local current_column = vim.fn.col "."
 
@@ -380,12 +375,4 @@ components.active[3][6] = {
     }
   end,
 }
-require("feline").setup({
-  colors = {
-    bg = colors.statusline_bg,
-    fg = colors.fg,
-  },
-  components = components,
-})
-  end
-}
+return Components

@@ -15,37 +15,37 @@ local M = {}
 --     cleanRebuild = "cleanRebuild"
 -- }
 
--- {
---   "command": "build",
---   "targets": [
---     "all"
---   ],
--- }
-
 local build_dir = "build"
 local ALL_BUILD = {"all"}
+local bin = "cmake"
+local target_option = "--target"
+local prefix_option = "--"
 
-M.get_task_opts = function(defn)
-  local bin = "cmake"
-  local build_cmd = "--" .. defn.command
-  local target_cmd = "--target"
-  local res = {bin, build_cmd, build_dir, target_cmd}
-
-  for _, target in ipairs(defn.targets or ALL_BUILD) do
-    table.insert(res, target)
+local function add_targets(cmd, targets)
+  for _, target in ipairs(targets or ALL_BUILD) do
+    table.insert(cmd, target)
   end
-  -- local targets = defn.targets and table.concat(defn.targets, " ") or ALL_BUILD
+end
 
-  -- local cmd = c_tbl[defn.command]
+-- TODO: preset
+M.get_task_opts = function(defn)
+  local option_cmd = prefix_option .. defn.command
+  local cmd = {bin, option_cmd, build_dir}
+
+  if not defn.targets == nil then
+    table.insert(cmd, target_option)
+    add_targets(cmd, defn.targets)
+  end
 
   return {
-    cmd = res,
-    -- cmd = { "cmake", "--build", defn.command}
+  -- cmd is required. It can be a string or list of strings.
+    cmd = cmd,
+    -- Optional working directory for task
     -- cwd = nil,
     -- -- Optionally specify environment variables for the task
     -- env = nil,
     -- -- Can override the problem matcher in the task definition
-    -- problem_matcher = nil,
+    -- problem_matcher = '$gcc',
   }
 end
 

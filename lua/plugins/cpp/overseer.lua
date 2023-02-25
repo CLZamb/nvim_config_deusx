@@ -11,16 +11,12 @@ return {
 
   ft = { 'cpp', 'h', 'hpp' },
 
-  verylazy = true,
-
   config = function(_, _)
     local overseer = require("overseer")
     overseer.setup({
-      -- auto_detect_success_color = true,
+
       task_list = {
         direction = 'right',
-        -- Set keymap to false to remove default behavior
-        -- You can add custom keymaps here as well (anything vim.keymap.set accepts)
         bindings = {
           ["<C-l>"] = false,
           ["<C-h>"] = false,
@@ -30,31 +26,26 @@ return {
       preload_components = {
         'custom.open_trouble_on_failed',
         'custom.close_trouble',
-        -- 'custom.open_terminal',
-        -- 'custom.open_terminal_on_failed',
       },
 
       component_aliases = {
-        -- Tasks from tasks.json use these components
         default_vscode = {
           -- "default",
           'on_exit_set_status',
           {
-            -- do not override trouble.nvim signs, underline and text
             "on_result_diagnostics",
+            -- do not override trouble.nvim signs, underline and text
             signs = false,
             underline = false,
             virtual_text = false,
           },
           'on_result_diagnostics_quickfix',
-          -- 'on_result_notify',
         },
       },
-        -- templates = { "builtin", "cmake" },
     })
 
-    local templates = require('config.overseer_templates_cfg')
+    local templates = require('plugins.config.cfg_overseer_templates')
     templates.add_custom_hooks_to_templates()
-    end
-  }
+  end
+}
 

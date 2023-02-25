@@ -56,14 +56,8 @@ return {
       -- max_name_length = 10,
       -- max_prefix_length = 10,
       -- tab_size = 10,
-      offsets = {
-        {
-          filetype = "NvimTree",
-          padding = 1,
-        }
-      },
+      offsets = {{ filetype = "NvimTree"}},
       sort_by = 'id',
     },
-
   }
 }

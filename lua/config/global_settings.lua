@@ -1,8 +1,8 @@
 local g = vim.g
--- local go = vim.go
 local o = vim.o
 local opt = vim.opt
 local cmd = vim.cmd
+-- local go = vim.go
 
 g.noswapfile = true
 -- default shell
@@ -11,22 +11,19 @@ g.shell = "/bin/bash"
 g.cmake_link_compile_commands = 1
 -- save the last session into last_session file
 g.session_last_session = "last_session"
--- cpp run command to
--- tells the shell to use 16 24bit colors
+-- tells the shell to use 16 24 bit colors
 o.termguicolors = true
 o.sessionoptions="curdir,resize,buffers,tabpages,winsize,winpos,terminal"
 -- disable netrw at the very start of your init.lua (strongly advised) f
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
--- indent blank lines plugin config
--- g.indent_blankline_show_first_indent_level = false
--- g.indent_blankline_use_treesitter = true
+o.laststatus  = 3
 
 local options = {
     -- cmp
     completeopt = { "menuone", "noselect" }, -- mostly just for cmp
     pumheight = 12,
-
+    --
     showmatch = true,
     hlsearch = true,
     incsearch = true,
@@ -82,7 +79,6 @@ local options = {
     autoread = true,
     visualbell = true,
     background = 'dark',
-    fillchars = { vert = "│" },
     numberwidth = 4,
     syntax = "enable",
     mouse = "a",
@@ -114,12 +110,8 @@ set noinfercase
 set noshowmode
 let g:python_host_prog = "/usr/bin/python"
 let g:python3_host_prog = "/usr/bin/python"
-let g:lua_syntax_someoption = 0
-
-let g:lua_syntax_someoption = 1
 let g:highlightedyank_highlight_duration = 200
 
-let g:ackprg = 'ag --nogroup --nocolor --column'
 " indent Line
 
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
@@ -133,16 +125,14 @@ highlight dashboardHeader    ctermfg=114
 highlight dashboardCenter    ctermfg=215
 highlight dashboardShortCut  ctermfg=245
 
-set sessionoptions-=options
+" set sessionoptions-=options
 ]]
 
--- UltiSnipsExpandTrigger
--- UltiSnipsJumpForwardTrigger ='<c-b>',
--- UltiSnipsJumpBackwardTrigger ="<c-z>",
---
--- :set rubycomplete_buffer_loading
--- :set rubycomplete_classes_in_global
+-- let g:ackprg = 'ag --nogroup --nocolor --column'
+-- let g:edge_colors_override = {'bg_dim': ['#282c34', '250']}
+-- let g:edge_colors_override = {'bg0': ['#282c34', '250']}
+-- let g:edge_colors_override = {'bg_dim': ['#272932', '250']}
 
--- let g:indentLine_char = '│'
--- let g:indentLine_fileTypeExclude = ['dashboard']
+-- let g:terminal_color_4 = '#ff0000'
+-- let g:terminal_color_5 = 'green'
 ---------------- Turn Off Swap Files --------------

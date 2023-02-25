@@ -1,4 +1,5 @@
 return {
-  'morhetz/gruvbox', 
-  lazy = true,
+  'morhetz/gruvbox',
+  -- lazy = true,
+  enabled = false
 }

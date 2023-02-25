@@ -16,7 +16,6 @@ vim.g.mapleader = ' '
 return require('lazy').setup({
   spec = {
     {import = 'themes'},
-    -- {import = 'plugins'},
     {import = 'plugins.aesthetics'},
     {import = 'plugins.core'},
     {import = 'plugins.cpp'},

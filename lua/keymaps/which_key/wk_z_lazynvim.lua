@@ -7,6 +7,6 @@ wk.register({
     ["u"] = {":Lazy update<cr>", "Update"},
     ["c"] = {":Lazy clean<cr>", "Clean"},
     ["s"] = {":Lazy home<cr>", "Home"},
-    ["p"] = {":Lazy profile<cr>", "Home"},
+    ["p"] = {":Lazy profile<cr>", "Profile"},
   },
 }, { prefix = "<leader>" })

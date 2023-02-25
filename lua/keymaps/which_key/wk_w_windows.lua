@@ -15,7 +15,6 @@ wk.register({
     ["l"] = {"<C-W>v<C-W>r" , "split-window-left"},
     ["r"] = {"<C-W>r" , "rotate window downwards/rightwards"},
     ["R"] = {"<C-W>R" , "rotate window upwards/leftwards"},
-
   },
 }, { prefix = '<leader>', silent = true,})
 

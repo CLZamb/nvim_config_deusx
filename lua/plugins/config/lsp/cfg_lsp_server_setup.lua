@@ -1,6 +1,6 @@
 local M = {}
 
-local lsp_handlers = require('config.lsp.lsp_handlers')
+local lsp_handlers = require('plugins.config.lsp.lsp_handlers')
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
 
 -- autocompletion
@@ -13,8 +13,8 @@ M.on_attach = function(client, bufnr)
   lsp_handlers.set_navic(client, bufnr)
 end
 
--- notify the lsp started
 M.on_init = function(client)
+  -- notify the lsp started
   local m = "[" .. client.name .. "] client server has started successfully!";
   vim.notify(m, nil, { title = " LSP"})
 end

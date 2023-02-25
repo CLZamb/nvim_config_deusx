@@ -1,7 +1,7 @@
 local wk = require("which-key")
 
 wk.register({
-  ["b"] = {
+  ["g"] = {
     name = '+tabs',
     ["1"] = { ":tabn 1<CR>", "which_key_ignore"},
     ["2"] = { ":tabn 2<CR>", "which_key_ignore"},
@@ -21,5 +21,5 @@ wk.register({
     ["o"] = { ":tabonly<CR>", "which_key_ignore"},
     ["t"] = { ":tabnew +term<CR>", "which_key_ignore"},
     ["v"] = { ":tabedit ~/.config/nvim/init.lua<CR>", "which_key_ignore"},
-  };
+  }
 }, { prefix = '<leader>', silent = true,})

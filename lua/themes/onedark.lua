@@ -1,4 +1,5 @@
 return {
   'navarasu/onedark.nvim',
-  lazy = true,
+  -- lazy = true,
+  enabled = false
 }

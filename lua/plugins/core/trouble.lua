@@ -5,13 +5,14 @@ return {
     'nvim-tree/nvim-web-devicons',
   },
 
+  event = "VeryLazy",
+
   config = function(_, _)
     require("trouble").setup {
-      position = "right",
+      position = "left",
       width = 50,
       auto_preview = false,
-      -- auto_close = true,
+      auto_close = true,
     }
   end
 }
--- %A%f:%l:%c:\ %m,%-G%.%#

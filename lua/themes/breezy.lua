@@ -1,4 +1,5 @@
 return {
-  'fneu/breezy', 
-  lazy = true,
+  'fneu/breezy',
+  -- lazy = true,
+  enabled = false
 }

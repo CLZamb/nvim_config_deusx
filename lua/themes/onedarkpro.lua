@@ -1,4 +1,5 @@
-return { 
+return {
   'olimorris/onedarkpro.nvim',
-  lazy = true,
+  -- lazy = true,
+  enabled = false
 }

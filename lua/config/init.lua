@@ -1,2 +1,1 @@
-require('config.setting')
-require('config.lsp')
+require('config.global_settings')

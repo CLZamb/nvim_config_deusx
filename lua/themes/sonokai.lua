@@ -1,4 +1,5 @@
 return {
   'sainnhe/sonokai',
-  lazy = true,
+  -- lazy = true,
+  enabled = false
 }

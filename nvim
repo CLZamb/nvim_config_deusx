@@ -13,178 +13,28 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +32 ~/.config/nvim/lua/keymaps/which_key/wk_single_key.lua
-badd +44 lua/custom_commands/user_commands.lua
-badd +6 ~/.config/nvim/lua/notify_config/functions.lua
-badd +14 lua/keymaps/which_key/wk_a_dap.lua
-badd +5 lua/config/overseer_templates_cfg.lua
-badd +48 lua/plugins/cpp/overseer.lua
-badd +5 lua/overseer/component/custom/open_terminal.lua
-badd +24 ~/.config/nvim/lua/overseer/component/custom/open_terminal_on_failed.lua
-badd +12 lua/overseer/component/custom/open_trouble_on_failed.lua
-badd +1 man://end(3)
+badd +4 ~/.config/nvim/lua/plugins/core/treesitter.lua
+badd +12 ~/.config/nvim/lua/plugins/lsp/cmp.lua
+badd +2 ~/.config/nvim/lua/plugins/lsp/mason.lua
+badd +4 lua/plugins/config/lsp/cfg_lsp_server_setup.lua
+badd +1 init.lua
+badd +14 ~/.config/nvim/lua/plugins/lsp/lspconfig.lua
+badd +22 lua/custom_commands/user_commands.lua
+badd +113 ~/.config/nvim/lua/config/global_settings.lua
+badd +5 ~/.config/nvim/lua/themes/edge.lua
+badd +15 lua/plugins/aesthetics/notify.lua
+badd +3 ~/.config/nvim/lua/themes/gruvboxnvim.lua
+badd +1 lua/ui/highlights.lua
 argglobal
 %argdel
 $argadd init.lua
-set lines=55 columns=206
+set lines=52 columns=206
+tabnew +setlocal\ bufhidden=wipe
 tabnew +setlocal\ bufhidden=wipe
 tabnew +setlocal\ bufhidden=wipe
 tabnew +setlocal\ bufhidden=wipe
 tabrewind
-edit lua/ui/colors.lua
-let s:save_splitbelow = &splitbelow
-let s:save_splitright = &splitright
-set splitbelow splitright
-wincmd _ | wincmd |
-vsplit
-1wincmd h
-wincmd w
-let &splitbelow = s:save_splitbelow
-let &splitright = s:save_splitright
-wincmd t
-let s:save_winminheight = &winminheight
-let s:save_winminwidth = &winminwidth
-set winminheight=0
-set winheight=1
-set winminwidth=0
-set winwidth=1
-exe 'vert 1resize ' . ((&columns * 102 + 103) / 206)
-exe 'vert 2resize ' . ((&columns * 103 + 103) / 206)
-argglobal
-let s:l = 38 - ((37 * winheight(0) + 26) / 52)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 38
-normal! 0
-wincmd w
-argglobal
-if bufexists(fnamemodify("lua/ui/colors.lua", ":p")) | buffer lua/ui/colors.lua | else | edit lua/ui/colors.lua | endif
-if &buftype ==# 'terminal'
-  silent file lua/ui/colors.lua
-endif
-let s:l = 37 - ((36 * winheight(0) + 26) / 52)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 37
-normal! 023|
-wincmd w
-exe 'vert 1resize ' . ((&columns * 102 + 103) / 206)
-exe 'vert 2resize ' . ((&columns * 103 + 103) / 206)
-tabnext
-edit ~/.config/nvim/lua/plugins/core/telescope.lua
-let s:save_splitbelow = &splitbelow
-let s:save_splitright = &splitright
-set splitbelow splitright
-wincmd _ | wincmd |
-vsplit
-1wincmd h
-wincmd w
-let &splitbelow = s:save_splitbelow
-let &splitright = s:save_splitright
-wincmd t
-let s:save_winminheight = &winminheight
-let s:save_winminwidth = &winminwidth
-set winminheight=0
-set winheight=1
-set winminwidth=0
-set winwidth=1
-exe 'vert 1resize ' . ((&columns * 103 + 103) / 206)
-exe 'vert 2resize ' . ((&columns * 102 + 103) / 206)
-argglobal
-let s:l = 1 - ((0 * winheight(0) + 26) / 52)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 1
-normal! 08|
-wincmd w
-argglobal
-if bufexists(fnamemodify("~/.config/nvim/lua/plugins/core/telescope.lua", ":p")) | buffer ~/.config/nvim/lua/plugins/core/telescope.lua | else | edit ~/.config/nvim/lua/plugins/core/telescope.lua | endif
-if &buftype ==# 'terminal'
-  silent file ~/.config/nvim/lua/plugins/core/telescope.lua
-endif
-let s:l = 1 - ((0 * winheight(0) + 26) / 52)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 1
-normal! 08|
-wincmd w
-exe 'vert 1resize ' . ((&columns * 103 + 103) / 206)
-exe 'vert 2resize ' . ((&columns * 102 + 103) / 206)
-tabnext
-edit ~/.config/nvim/lua/keymaps/which_key/wk_b_tabs.lua
-let s:save_splitbelow = &splitbelow
-let s:save_splitright = &splitright
-set splitbelow splitright
-wincmd _ | wincmd |
-vsplit
-1wincmd h
-wincmd w
-wincmd _ | wincmd |
-split
-1wincmd k
-wincmd w
-let &splitbelow = s:save_splitbelow
-let &splitright = s:save_splitright
-wincmd t
-let s:save_winminheight = &winminheight
-let s:save_winminwidth = &winminwidth
-set winminheight=0
-set winheight=1
-set winminwidth=0
-set winwidth=1
-exe 'vert 1resize ' . ((&columns * 103 + 103) / 206)
-exe '2resize ' . ((&lines * 26 + 27) / 55)
-exe 'vert 2resize ' . ((&columns * 102 + 103) / 206)
-exe '3resize ' . ((&lines * 25 + 27) / 55)
-exe 'vert 3resize ' . ((&columns * 102 + 103) / 206)
-argglobal
-let s:l = 22 - ((21 * winheight(0) + 26) / 52)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 22
-normal! 04|
-wincmd w
-argglobal
-if bufexists(fnamemodify("lua/keymaps/which_key/wk_w_windows.lua", ":p")) | buffer lua/keymaps/which_key/wk_w_windows.lua | else | edit lua/keymaps/which_key/wk_w_windows.lua | endif
-if &buftype ==# 'terminal'
-  silent file lua/keymaps/which_key/wk_w_windows.lua
-endif
-let s:l = 12 - ((11 * winheight(0) + 13) / 26)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 12
-let s:c = 39 - ((34 * winwidth(0) + 51) / 102)
-if s:c > 0
-  exe 'normal! ' . s:c . '|zs' . 39 . '|'
-else
-  normal! 039|
-endif
-wincmd w
-argglobal
-if bufexists(fnamemodify("~/.config/nvim/lua/keymaps/which_key/wk_b_tabs.lua", ":p")) | buffer ~/.config/nvim/lua/keymaps/which_key/wk_b_tabs.lua | else | edit ~/.config/nvim/lua/keymaps/which_key/wk_b_tabs.lua | endif
-if &buftype ==# 'terminal'
-  silent file ~/.config/nvim/lua/keymaps/which_key/wk_b_tabs.lua
-endif
-let s:l = 23 - ((22 * winheight(0) + 12) / 25)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 23
-normal! 013|
-wincmd w
-exe 'vert 1resize ' . ((&columns * 103 + 103) / 206)
-exe '2resize ' . ((&lines * 26 + 27) / 55)
-exe 'vert 2resize ' . ((&columns * 102 + 103) / 206)
-exe '3resize ' . ((&lines * 25 + 27) / 55)
-exe 'vert 3resize ' . ((&columns * 102 + 103) / 206)
-tabnext
-edit lua/config/overseer_templates_cfg.lua
+edit ~/.config/nvim/lua/plugins/lsp/mason.lua
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
@@ -211,21 +61,80 @@ set winminwidth=0
 set winwidth=1
 wincmd =
 argglobal
-balt lua/keymaps/which_key/wk_a_dap.lua
-let s:l = 5 - ((4 * winheight(0) + 12) / 24)
+balt ~/.config/nvim/lua/themes/edge.lua
+let s:l = 2 - ((1 * winheight(0) + 11) / 23)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 5
-normal! 016|
+keepjumps 2
+normal! 0
 wincmd w
 argglobal
-if bufexists(fnamemodify("~/.config/nvim/lua/notify_config/functions.lua", ":p")) | buffer ~/.config/nvim/lua/notify_config/functions.lua | else | edit ~/.config/nvim/lua/notify_config/functions.lua | endif
+if bufexists(fnamemodify("lua/ui/highlights.lua", ":p")) | buffer lua/ui/highlights.lua | else | edit lua/ui/highlights.lua | endif
 if &buftype ==# 'terminal'
-  silent file ~/.config/nvim/lua/notify_config/functions.lua
+  silent file lua/ui/highlights.lua
 endif
-balt lua/config/overseer_templates_cfg.lua
-let s:l = 6 - ((5 * winheight(0) + 12) / 25)
+balt ~/.config/nvim/lua/plugins/core/treesitter.lua
+let s:l = 1 - ((0 * winheight(0) + 11) / 23)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 1
+normal! 07|
+wincmd w
+argglobal
+if bufexists(fnamemodify("~/.config/nvim/lua/plugins/lsp/lspconfig.lua", ":p")) | buffer ~/.config/nvim/lua/plugins/lsp/lspconfig.lua | else | edit ~/.config/nvim/lua/plugins/lsp/lspconfig.lua | endif
+if &buftype ==# 'terminal'
+  silent file ~/.config/nvim/lua/plugins/lsp/lspconfig.lua
+endif
+balt ~/.config/nvim/lua/plugins/lsp/cmp.lua
+let s:l = 8 - ((7 * winheight(0) + 11) / 23)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 8
+normal! 03|
+wincmd w
+argglobal
+if bufexists(fnamemodify("~/.config/nvim/lua/config/global_settings.lua", ":p")) | buffer ~/.config/nvim/lua/config/global_settings.lua | else | edit ~/.config/nvim/lua/config/global_settings.lua | endif
+if &buftype ==# 'terminal'
+  silent file ~/.config/nvim/lua/config/global_settings.lua
+endif
+balt ~/.config/nvim/lua/themes/gruvboxnvim.lua
+let s:l = 113 - ((8 * winheight(0) + 11) / 23)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 113
+normal! 02|
+wincmd w
+4wincmd w
+wincmd =
+tabnext
+edit lua/keymaps/which_key/wk_single_key.lua
+let s:save_splitbelow = &splitbelow
+let s:save_splitright = &splitright
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
+wincmd _ | wincmd |
+split
+1wincmd k
+wincmd w
+let &splitbelow = s:save_splitbelow
+let &splitright = s:save_splitright
+wincmd t
+let s:save_winminheight = &winminheight
+let s:save_winminwidth = &winminwidth
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+wincmd =
+argglobal
+let s:l = 6 - ((5 * winheight(0) + 24) / 49)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
@@ -233,42 +142,123 @@ keepjumps 6
 normal! 03|
 wincmd w
 argglobal
-if bufexists(fnamemodify("lua/plugins/cpp/overseer.lua", ":p")) | buffer lua/plugins/cpp/overseer.lua | else | edit lua/plugins/cpp/overseer.lua | endif
+if bufexists(fnamemodify("~/.config/nvim/lua/keymaps/which_key/init.lua", ":p")) | buffer ~/.config/nvim/lua/keymaps/which_key/init.lua | else | edit ~/.config/nvim/lua/keymaps/which_key/init.lua | endif
 if &buftype ==# 'terminal'
-  silent file lua/plugins/cpp/overseer.lua
+  silent file ~/.config/nvim/lua/keymaps/which_key/init.lua
 endif
-balt ~/.config/nvim/lua/overseer/component/custom/open_terminal_on_failed.lua
-let s:l = 14 - ((13 * winheight(0) + 12) / 25)
+let s:l = 11 - ((10 * winheight(0) + 12) / 24)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 14
-normal! 011|
+keepjumps 11
+normal! 031|
 wincmd w
 argglobal
-if bufexists(fnamemodify("~/.config/nvim/lua/overseer/component/custom/open_terminal_on_failed.lua", ":p")) | buffer ~/.config/nvim/lua/overseer/component/custom/open_terminal_on_failed.lua | else | edit ~/.config/nvim/lua/overseer/component/custom/open_terminal_on_failed.lua | endif
+if bufexists(fnamemodify("~/.config/nvim/lua/keymaps/which_key/wk_g_tabs.lua", ":p")) | buffer ~/.config/nvim/lua/keymaps/which_key/wk_g_tabs.lua | else | edit ~/.config/nvim/lua/keymaps/which_key/wk_g_tabs.lua | endif
 if &buftype ==# 'terminal'
-  silent file ~/.config/nvim/lua/overseer/component/custom/open_terminal_on_failed.lua
+  silent file ~/.config/nvim/lua/keymaps/which_key/wk_g_tabs.lua
 endif
-balt lua/plugins/cpp/overseer.lua
-let s:l = 5 - ((4 * winheight(0) + 12) / 24)
+let s:l = 4 - ((3 * winheight(0) + 12) / 24)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 5
-normal! 08|
+keepjumps 4
+normal! 03|
 wincmd w
-2wincmd w
 wincmd =
-tabnext 4
+tabnext
+edit ~/.config/nvim/lua/plugins/lsp/lspconfig.lua
+let s:save_splitbelow = &splitbelow
+let s:save_splitright = &splitright
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd _ | wincmd |
+split
+1wincmd k
+wincmd w
+wincmd w
+wincmd _ | wincmd |
+split
+1wincmd k
+wincmd w
+let &splitbelow = s:save_splitbelow
+let &splitright = s:save_splitright
+wincmd t
+let s:save_winminheight = &winminheight
+let s:save_winminwidth = &winminwidth
+set winminheight=0
+set winheight=1
+set winminwidth=0
+set winwidth=1
+wincmd =
+argglobal
+balt ~/.config/nvim/lua/plugins/lsp/cmp.lua
+let s:l = 16 - ((15 * winheight(0) + 12) / 24)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 16
+normal! 07|
+wincmd w
+argglobal
+if bufexists(fnamemodify("~/.config/nvim/lua/plugins/lsp/mason.lua", ":p")) | buffer ~/.config/nvim/lua/plugins/lsp/mason.lua | else | edit ~/.config/nvim/lua/plugins/lsp/mason.lua | endif
+if &buftype ==# 'terminal'
+  silent file ~/.config/nvim/lua/plugins/lsp/mason.lua
+endif
+balt ~/.config/nvim/lua/plugins/lsp/lspconfig.lua
+let s:l = 9 - ((8 * winheight(0) + 12) / 24)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 9
+normal! 0
+wincmd w
+argglobal
+if bufexists(fnamemodify("~/.config/nvim/lua/config/global_settings.lua", ":p")) | buffer ~/.config/nvim/lua/config/global_settings.lua | else | edit ~/.config/nvim/lua/config/global_settings.lua | endif
+if &buftype ==# 'terminal'
+  silent file ~/.config/nvim/lua/config/global_settings.lua
+endif
+balt ~/.config/nvim/lua/plugins/lsp/lspconfig.lua
+let s:l = 71 - ((11 * winheight(0) + 12) / 24)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 71
+normal! 05|
+wincmd w
+argglobal
+if bufexists(fnamemodify("~/.config/nvim/lua/plugins/lsp/cmp.lua", ":p")) | buffer ~/.config/nvim/lua/plugins/lsp/cmp.lua | else | edit ~/.config/nvim/lua/plugins/lsp/cmp.lua | endif
+if &buftype ==# 'terminal'
+  silent file ~/.config/nvim/lua/plugins/lsp/cmp.lua
+endif
+balt ~/.config/nvim/lua/plugins/lsp/lspconfig.lua
+let s:l = 4 - ((3 * winheight(0) + 12) / 24)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 4
+normal! 0
+wincmd w
+wincmd =
+tabnext
+tabnext
+edit ~/.local/state/nvim/lsp.log
+argglobal
+let s:l = 1 - ((0 * winheight(0) + 24) / 49)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 1
+normal! 0
+tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
 endif
 unlet! s:wipebuf
 set winheight=1 winwidth=20
 let &shortmess = s:shortmess_save
-let &winminheight = s:save_winminheight
-let &winminwidth = s:save_winminwidth
 let s:sx = expand("<sfile>:p:r")."x.vim"
 if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)

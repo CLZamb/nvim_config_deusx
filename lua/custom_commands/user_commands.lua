@@ -1,48 +1,35 @@
-local api = vim.api
-local create_cmd = api.nvim_create_user_command
-local overseer = require('overseer')
+local create_cmd = vim.api.nvim_create_user_command
+local ovs_util = require('custom_commands.utils.ovs_utils')
 
-create_cmd("CMakeBuildAndRun", function()
-  local task = overseer.task_list.get_by_name("CMake: build and run")
-  if task == nil then
-    overseer.run_template({ name = "CMake: build and run"})
-  else
-    overseer.run_action(task, "restart")
-  end
+local build_task_command = {
+  cpp = "CMake: build",
+  -- python = "python"
+}
+
+local run_task_commands = {
+  cpp = "Run",
+}
+
+local build_and_run_task_commands = {
+  cpp = "CMake: build and run",
+}
+
+local debug_task_commands = {
+  cpp = "GTest: build and run",
+}
+
+create_cmd("OVSBuildAndRun", function()
+  ovs_util.cur_buf_filetype_run_task(build_and_run_task_commands)
 end, {})
 
-create_cmd("CMakeBuild", function()
-  local task = overseer.task_list.get_by_name("CMake: build")
-  if task == nil then
-    overseer.run_template({ name = "CMake: build"})
-  else
-    overseer.run_action(task, "restart")
-  end
+create_cmd("OVSBuild", function()
+  ovs_util.cur_buf_filetype_run_task(build_task_command)
 end, {})
 
-create_cmd("CMakeRun", function()
-  local task = overseer.task_list.get_by_name("Run")
-  if task == nil then
-    overseer.run_template({ name = "Run"})
-  else
-    overseer.run_action(task, "restart")
-  end
+create_cmd("OVSRun", function()
+  ovs_util.cur_buf_filetype_run_task(run_task_commands)
 end, {})
-
-create_cmd("CMakeRun", function()
-  local task = overseer.task_list.get_by_name("Run")
-  if task == nil then
-    overseer.run_template({ name = "Run"})
-  else
-    overseer.run_action(task, "restart")
-  end
-end, {})
-
-create_cmd("GTest", function()
-  local task = overseer.task_list.get_by_name("GTest: build and run")
-  if task == nil then
-    overseer.run_template({ name = "GTest: build and run"})
-  else
-    overseer.run_action(task, "restart")
-  end
+--
+create_cmd("OVSTestBuildAndRun", function()
+  ovs_util.cur_buf_filetype_run_task(debug_task_commands)
 end, {})
