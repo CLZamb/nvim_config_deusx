@@ -9,7 +9,9 @@ return {
   priority = 1000, -- make sure to load this before all the other start plugins
   config = function()
     local g = vim.g
+    vim.cmd [[set background=dark]]
 
+    g.edge_show_eob = 1
     -- Edge theme
     g.edge_style = 'aura'
     g.edge_enable_italic = true
@@ -18,8 +20,6 @@ return {
     g.edge_diagnostic_virtual_text = 'colored'
     g.edge_current_word = 'bold'
     g.edge_better_performance = true
-    -- g.edge_transparent_background = true
-    --
     -- UI CONFIGS
     g.ui = { theme = "onedark", }
     vim.cmd[[colorscheme edge]]
