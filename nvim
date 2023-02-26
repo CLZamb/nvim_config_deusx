@@ -15,16 +15,17 @@ else
 endif
 badd +4 ~/.config/nvim/lua/plugins/core/treesitter.lua
 badd +12 ~/.config/nvim/lua/plugins/lsp/cmp.lua
-badd +2 ~/.config/nvim/lua/plugins/lsp/mason.lua
+badd +3 ~/.config/nvim/lua/plugins/lsp/mason.lua
 badd +4 lua/plugins/config/lsp/cfg_lsp_server_setup.lua
 badd +1 init.lua
-badd +14 ~/.config/nvim/lua/plugins/lsp/lspconfig.lua
+badd +9 ~/.config/nvim/lua/plugins/lsp/lspconfig.lua
 badd +22 lua/custom_commands/user_commands.lua
-badd +113 ~/.config/nvim/lua/config/global_settings.lua
+badd +2 ~/.config/nvim/lua/config/global_settings.lua
 badd +5 ~/.config/nvim/lua/themes/edge.lua
 badd +15 lua/plugins/aesthetics/notify.lua
 badd +3 ~/.config/nvim/lua/themes/gruvboxnvim.lua
-badd +1 lua/ui/highlights.lua
+badd +57 lua/ui/highlights.lua
+badd +40 lua/ui/colors.lua
 argglobal
 %argdel
 $argadd init.lua
@@ -34,17 +35,13 @@ tabnew +setlocal\ bufhidden=wipe
 tabnew +setlocal\ bufhidden=wipe
 tabnew +setlocal\ bufhidden=wipe
 tabrewind
-edit ~/.config/nvim/lua/plugins/lsp/mason.lua
+edit lua/ui/highlights.lua
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
 1wincmd h
-wincmd _ | wincmd |
-split
-1wincmd k
-wincmd w
 wincmd w
 wincmd _ | wincmd |
 split
@@ -61,39 +58,26 @@ set winminwidth=0
 set winwidth=1
 wincmd =
 argglobal
-balt ~/.config/nvim/lua/themes/edge.lua
-let s:l = 2 - ((1 * winheight(0) + 11) / 23)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 2
-normal! 0
-wincmd w
-argglobal
-if bufexists(fnamemodify("lua/ui/highlights.lua", ":p")) | buffer lua/ui/highlights.lua | else | edit lua/ui/highlights.lua | endif
-if &buftype ==# 'terminal'
-  silent file lua/ui/highlights.lua
-endif
 balt ~/.config/nvim/lua/plugins/core/treesitter.lua
-let s:l = 1 - ((0 * winheight(0) + 11) / 23)
+let s:l = 1 - ((0 * winheight(0) + 24) / 48)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
 keepjumps 1
-normal! 07|
+normal! 0
 wincmd w
 argglobal
-if bufexists(fnamemodify("~/.config/nvim/lua/plugins/lsp/lspconfig.lua", ":p")) | buffer ~/.config/nvim/lua/plugins/lsp/lspconfig.lua | else | edit ~/.config/nvim/lua/plugins/lsp/lspconfig.lua | endif
+if bufexists(fnamemodify("lua/ui/colors.lua", ":p")) | buffer lua/ui/colors.lua | else | edit lua/ui/colors.lua | endif
 if &buftype ==# 'terminal'
-  silent file ~/.config/nvim/lua/plugins/lsp/lspconfig.lua
+  silent file lua/ui/colors.lua
 endif
-balt ~/.config/nvim/lua/plugins/lsp/cmp.lua
-let s:l = 8 - ((7 * winheight(0) + 11) / 23)
+balt ~/.config/nvim/lua/plugins/lsp/lspconfig.lua
+let s:l = 40 - ((12 * winheight(0) + 11) / 23)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 8
-normal! 03|
+keepjumps 40
+normal! 021|
 wincmd w
 argglobal
 if bufexists(fnamemodify("~/.config/nvim/lua/config/global_settings.lua", ":p")) | buffer ~/.config/nvim/lua/config/global_settings.lua | else | edit ~/.config/nvim/lua/config/global_settings.lua | endif
@@ -101,14 +85,14 @@ if &buftype ==# 'terminal'
   silent file ~/.config/nvim/lua/config/global_settings.lua
 endif
 balt ~/.config/nvim/lua/themes/gruvboxnvim.lua
-let s:l = 113 - ((8 * winheight(0) + 11) / 23)
+let s:l = 2 - ((1 * winheight(0) + 11) / 23)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 113
-normal! 02|
+keepjumps 2
+normal! 07|
 wincmd w
-4wincmd w
+3wincmd w
 wincmd =
 tabnext
 edit lua/keymaps/which_key/wk_single_key.lua
@@ -195,11 +179,11 @@ set winwidth=1
 wincmd =
 argglobal
 balt ~/.config/nvim/lua/plugins/lsp/cmp.lua
-let s:l = 16 - ((15 * winheight(0) + 12) / 24)
+let s:l = 18 - ((17 * winheight(0) + 12) / 24)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 16
+keepjumps 18
 normal! 07|
 wincmd w
 argglobal
@@ -208,11 +192,11 @@ if &buftype ==# 'terminal'
   silent file ~/.config/nvim/lua/plugins/lsp/mason.lua
 endif
 balt ~/.config/nvim/lua/plugins/lsp/lspconfig.lua
-let s:l = 9 - ((8 * winheight(0) + 12) / 24)
+let s:l = 4 - ((3 * winheight(0) + 12) / 24)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 9
+keepjumps 4
 normal! 0
 wincmd w
 argglobal

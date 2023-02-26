@@ -125,6 +125,7 @@ highlight dashboardHeader    ctermfg=114
 highlight dashboardCenter    ctermfg=215
 highlight dashboardShortCut  ctermfg=245
 
+let g:edge_colors_override = {'bg_dim': ['#2a2c36', '250']}
 " set sessionoptions-=options
 ]]
 

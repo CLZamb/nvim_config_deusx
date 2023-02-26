@@ -83,9 +83,9 @@ fg_bg("DiffModified", nord_blue, "none")
 -- [[ LspDiagnostics
 -- Errors
 fg("LspDiagnosticsSignError", red)
+fg("DiagnosticError", red)
 fg("LspDiagnosticsSignWarning", yellow)
-fg("LspDiagnosticsVirtualTextError", red)
-fg("LspDiagnosticsVirtualTextWarning", yellow)
+fg("LspDiagnosticsVirtualTextError", red) fg("LspDiagnosticsVirtualTextWarning", yellow)
 
 -- Info
 fg("LspDiagnosticsSignInformation", blue)

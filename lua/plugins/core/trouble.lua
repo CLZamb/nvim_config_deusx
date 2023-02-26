@@ -9,8 +9,8 @@ return {
 
   config = function(_, _)
     require("trouble").setup {
-      position = "left",
-      width = 50,
+      -- position = "top",
+      -- width = 50,
       auto_preview = false,
       auto_close = true,
     }

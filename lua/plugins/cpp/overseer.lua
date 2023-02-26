@@ -16,7 +16,7 @@ return {
     overseer.setup({
 
       task_list = {
-        direction = 'right',
+        -- direction = 'right',
         bindings = {
           ["<C-l>"] = false,
           ["<C-h>"] = false,

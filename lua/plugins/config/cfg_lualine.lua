@@ -1,6 +1,7 @@
 local M = {}
 
 local colors = require("ui.colors").get()
+local STATUS = require('overseer').constants.STATUS
 
 local config = {
   style = "slant",
@@ -202,6 +203,24 @@ ins_section_b {
   end,
   icon = ' LSP:',
   color = { fg = colors.green },
+}
+
+ins_section_b {
+  "overseer",
+  label = '',     -- Prefix for task counts
+  colored = true, -- Color the task icons and counts
+  symbols = {
+    [STATUS.FAILURE]  = " Failure:  ",
+    [STATUS.CANCELED] = " Canceled: 󱃓 ",
+    [STATUS.SUCCESS]  = " Success:  ",
+    [STATUS.RUNNING]  = " Running:  ",
+    [STATUS.PENDING]  = " Pending:  ",
+  },
+  unique = true,     -- Unique-ify non-running task count by name
+  name = nil,         -- List of task names to search for
+  name_not = false,   -- When true, invert the name search
+  status = nil,
+  status_not = false, -- When true, invert the status search
 }
 
 ins_section_y {

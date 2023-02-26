@@ -14,7 +14,7 @@ lsp.handlers["textDocument/hover"] =  lsp.with(lsp.handlers.hover, {border = bor
 lsp.handlers['textDocument/publishDiagnostics'] = lsp.with(lsp.diagnostic.on_publish_diagnostics, {
   virtual_text = {
     source = "always",  -- Or "if_many-- "
-    prefix = '',-- Could be '●', '▎', 'x'
+    prefix = '',-- Could be '●', '▎', 'x'
     spacing = 2,
   },
 

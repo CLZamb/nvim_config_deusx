@@ -9,7 +9,7 @@ return {
   -- When false, don't serialize this component when saving a task to disk
   serializable = true,
   -- The params passed in will match the params defined above
-  constructor = function(params)
+  constructor = function(_)
     -- You may optionally define any of the methods below
     return {
       on_complete = function(_, _, status, _)
