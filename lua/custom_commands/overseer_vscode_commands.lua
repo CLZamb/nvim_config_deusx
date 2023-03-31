@@ -2,7 +2,7 @@ local create_cmd = vim.api.nvim_create_user_command
 local ovs_util = require('custom_commands.utils.ovs_utils')
 
 local build_task_command = {
-  cpp = "CMake: build",
+  cpp = "Build",
   -- python = "python"
 }
 
@@ -11,11 +11,11 @@ local run_task_commands = {
 }
 
 local build_and_run_task_commands = {
-  cpp = "CMake: build and run",
+  cpp = "build and run",
 }
 
 local debug_task_commands = {
-  cpp = "GTest: build and run",
+  cpp = "GTest",
 }
 
 create_cmd("OVSBuildAndRun", function()
@@ -30,6 +30,6 @@ create_cmd("OVSRun", function()
   ovs_util.cur_buf_filetype_run_task(run_task_commands)
 end, {})
 --
-create_cmd("OVSTestBuildAndRun", function()
+create_cmd("OVSTestBuild", function()
   ovs_util.cur_buf_filetype_run_task(debug_task_commands)
 end, {})

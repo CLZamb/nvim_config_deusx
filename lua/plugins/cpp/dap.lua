@@ -28,9 +28,10 @@ return {
         name = "vscode-cpptools_launch",
         type = "cppdbg",
         request = "launch",
-        program = function()
-          return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/debug/bin/', 'file')
-        end,
+        program = vim.fn.expand('%:p:h') .. '/debug/bin/Chess',
+        -- program = function()
+        --   return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/debug/bin/', 'file')
+        -- end,
         MIMode = 'gdb',
         cwd = '${workspaceFolder}',
         stopAtEntry = true,

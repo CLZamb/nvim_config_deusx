@@ -32,9 +32,9 @@ return {
                 row = 8,
                 col = "50%",
               },
-              size = {
-                width = 50,
-              },
+              -- size = {
+              --   width = 50,
+              -- },
               border = {
                 style = "rounded",
                 -- height, width
@@ -70,6 +70,12 @@ return {
       cmdline = {
         format = {
           cmdline = { icon = "  " , title = "" },
+          search_down = { title = ""},
+          search_up = { title = ""},
+          lua = { title = ""},
+          filter = { title = ""},
+          help = { title = ""},
+          input = { title = ""},
         }
       }
     })

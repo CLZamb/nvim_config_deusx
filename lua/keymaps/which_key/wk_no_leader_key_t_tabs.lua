@@ -1,0 +1,26 @@
+local wk = require("which-key")
+
+wk.register({
+    ["1"] = { ":tabn 1<CR>", "Go to tab 1"},
+    ["2"] = { ":tabn 2<CR>", "Go to tab 2"},
+    ["3"] = { ":tabn 3<CR>", "Go to tab 3"},
+    ["4"] = { ":tabn 4<CR>", "Go to tab 4"},
+    ["5"] = { ":tabn 5<CR>", "Go to tab 5"},
+    ["6"] = { ":tabn 6<CR>", "Go to tab 6"},
+    ["7"] = { ":tabn 7<CR>", "Go to tab 7"},
+    ["8"] = { ":tabn 8<CR>", "Go to tab 8"},
+    ["9"] = { ":tabn 9<CR>", "Go to tab 9"},
+    ["f"] = { ":tabfirst<CR>", "first tab"},
+    ["L"] = { ":tablast<CR>", "last tab"},
+    ["h"] = { ":tabprevious<CR>", "Previous tab"},
+    ["T"] = { ":tabprevious<CR>", "Previous tab"},
+    ["l"] = { ":tabnext<CR>", "Next tab"},
+    ["t"] = { ":tabnext<CR>", "Next tab"},
+    ["i"] = { ":tabs<CR>", "Tab Info"},
+    ["n"] = { ":tabnew<CR>", "New tab"},
+    ["o"] = { ":tabonly<CR>", "Tab only" },
+    ["c"] = { ":tabclose<CR>", "Close tab"},
+    ["q"] = { ":tabclose<CR>", "Close tab"},
+    ["v"] = { ":tabedit ~/.config/nvim/init.lua<CR>", "edit init.lua in another tab"},
+    ["g"] = { ":tabnew +term<CR>", "open terminal in a new tab"},
+}, { prefix = 't', silent = true })

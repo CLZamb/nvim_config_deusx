@@ -1,7 +1,7 @@
 local M = {}
 
 local colors = require("ui.colors").get()
-local STATUS = require('overseer').constants.STATUS
+-- local STATUS = require('overseer').constants.STATUS
 
 local config = {
   style = "slant",
@@ -205,23 +205,30 @@ ins_section_b {
   color = { fg = colors.green },
 }
 
-ins_section_b {
-  "overseer",
-  label = '',     -- Prefix for task counts
-  colored = true, -- Color the task icons and counts
-  symbols = {
-    [STATUS.FAILURE]  = " Failure:  ",
-    [STATUS.CANCELED] = " Canceled: 󱃓 ",
-    [STATUS.SUCCESS]  = " Success:  ",
-    [STATUS.RUNNING]  = " Running:  ",
-    [STATUS.PENDING]  = " Pending:  ",
-  },
-  unique = true,     -- Unique-ify non-running task count by name
-  name = nil,         -- List of task names to search for
-  name_not = false,   -- When true, invert the name search
-  status = nil,
-  status_not = false, -- When true, invert the status search
-}
+-- only add component if overseer is loaded
+if vim.fn.exists(':OverseerInfo') > 0 then
+
+  local STATUS = require('overseer').constants.STATUS
+
+  ins_section_b {
+    "overseer",
+    color = { fg = colors.blue },
+    label = '',     -- Prefix for task counts
+    colored = true, -- Color the task icons and counts
+    symbols = {
+      [STATUS.FAILURE]  = " Failure:  ",
+      [STATUS.CANCELED] = " Canceled: 󱃓 ",
+      [STATUS.SUCCESS]  = " Success:  ",
+      [STATUS.RUNNING]  = " Running:  ",
+      [STATUS.PENDING]  = " Pending:  ",
+    },
+    unique = true,     -- Unique-ify non-running task count by name
+    name = nil,         -- List of task names to search for
+    name_not = false,   -- When true, invert the name search
+    status = nil,
+    status_not = false, -- When true, invert the status search
+  }
+end
 
 ins_section_y {
   'diff',
@@ -311,16 +318,5 @@ ins_section_z {
 }
 
 local get_win_width = vim.api.nvim_win_get_width
-local nvim_tree_view = require('nvim-tree.view')
--- fix for nvim offset
-ins_section_z {
-  function ()
-    return string.rep(' ', get_win_width(nvim_tree_view.get_winnr()) - 2)
-  end,
-
-  cond = require('nvim-tree.view').is_visible,
-
-  color = 'NvimTreeNormal'
-}
 
 return M

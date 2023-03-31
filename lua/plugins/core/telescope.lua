@@ -10,11 +10,52 @@ return {
   config = function(_, _)
     require('telescope').setup {
       defaults = {
+        -- Appearance
+        entry_prefix = "  ",
+        prompt_prefix = "   ",
+        selection_caret = "  ",
+        color_devicons = true,
+        -- path_display = { "smart" },
+        dynamic_preview_title = true,
         file_sorter = require("telescope.sorters").get_fzy_sorter,
+
         sorting_strategy = "ascending",
         layout_strategy = 'horizontal',
         layout_config = {
-          prompt_position = "top",
+          horizontal = {
+            preview_width = 0.55,
+            prompt_position = "top",
+            width = 0.9,
+          },
+          center = {
+            anchor = "N",
+            width = 0.9,
+            preview_cutoff = 10,
+          },
+          vertical = {
+            height = 0.9,
+            preview_height = 0.3,
+            width = 0.9,
+            preview_cutoff = 10,
+            prompt_position = "top",
+          },
+        },
+        file_ignore_patterns = {
+          ".git/",
+          "%.csv",
+          "%.jpg",
+          "%.jpeg",
+          "%.png",
+          "%.svg",
+          "%.otf",
+          "%.ttf",
+          "%.lock",
+          "__pycache__",
+          "%.sqlite3",
+          "%.ipynb",
+          "vendor",
+          "node_modules",
+          "dotbot",
         },
       },
       pickers = {

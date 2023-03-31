@@ -6,46 +6,20 @@ return {
     'nvim-telescope/telescope.nvim',
     'rcarriga/nvim-notify',
     'folke/trouble.nvim',
-    'akinsho/toggleterm.nvim',
+    'nvim-neotest/neotest',
   },
 
   ft = { 'cpp', 'h', 'hpp' },
 
   config = function(_, _)
-    local overseer = require("overseer")
-    overseer.setup({
-
-      task_list = {
-        -- direction = 'right',
-        bindings = {
-          ["<C-l>"] = false,
-          ["<C-h>"] = false,
-        },
-      },
-
-      preload_components = {
-        'custom.open_trouble_on_failed',
-        'custom.close_trouble',
-      },
-
-      component_aliases = {
-        default_vscode = {
-          -- "default",
-          'on_exit_set_status',
-          {
-            "on_result_diagnostics",
-            -- do not override trouble.nvim signs, underline and text
-            signs = false,
-            underline = false,
-            virtual_text = false,
-          },
-          'on_result_diagnostics_quickfix',
-        },
-      },
-    })
-
+    local overseer_cfg = require('plugins.config.cfg_overseer_setup')
     local templates = require('plugins.config.cfg_overseer_templates')
+
+    require("overseer").setup(overseer_cfg)
+
     templates.add_custom_hooks_to_templates()
+
+    require('custom_commands.overseer_vscode_commands')
   end
 }
 

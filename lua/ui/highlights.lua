@@ -56,11 +56,6 @@ fg("EndOfBuffer", endofbufferfg)
 fg_bg("FloatBorder", blue, float_bg)
 bg("NormalFloat", float_bg)
 
--- misc
--- inactive statuslines as thin lines
--- fg_bg("StatusLineNC", '#333644', "#333644")
--- fg_bg("StatusLine", '#333644', "#333644")
-
 fg("LineNr", grey)
 fg("NvimInternalError", line)
 fg_bg("VertSplit", line, line)
@@ -77,20 +72,15 @@ fg_bg("DiffAdd", nord_blue, "none")
 fg_bg("DiffChange", grey_fg, "none")
 fg_bg("DiffModified", nord_blue, "none")
 
--- Indent blankline color
--- fg("IndentBlanklineChar", line)
-
 -- [[ LspDiagnostics
--- Errors
+fg_bg('LspSignatureActiveParameter', white, one_bg2)
 fg("LspDiagnosticsSignError", red)
 fg("DiagnosticError", red)
 fg("LspDiagnosticsSignWarning", yellow)
 fg("LspDiagnosticsVirtualTextError", red) fg("LspDiagnosticsVirtualTextWarning", yellow)
-
 -- Info
 fg("LspDiagnosticsSignInformation", blue)
 fg("LspDiagnosticsVirtualTextInformation", blue)
-
 -- Hints
 fg("LspDiagnosticsSignHint", purple)
 fg("LspDiagnosticsVirtualTextHint", purple)
@@ -102,34 +92,42 @@ fg("NvimTreeFolderIcon", folder_bg)
 fg("NvimTreeFolderName", folder_bg)
 fg("NvimTreeGitDirty", red)
 fg("NvimTreeIndentMarker", one_bg2)
---NvimTreeStatusLineNC
 fg("NvimTreeOpenedFolderName", blue)
 fg("NvimTreeRootFolder", red .. " gui=underline") -- enable underline for root folder in nvim tree
-
- --NvimTreeStatusLine
--- fg_bg("NvimTreeStatusLineNC", '#333644', '#333644')
--- fg_bg("NvimTreeStatusLine", '#333644', '#333644')
 fg_bg("NvimTreeWindowPicker", red, one_bg)
 
 -- Telescope
 fg("TelescopeBorder", blue)
+fg_bg("TelescopePromptNormal", blue, one_bg)
 fg_bg("TelescopePreviewTitle", green, one_bg)
 fg_bg("TelescopePromptTitle", blue, one_bg)
 fg_bg("telescoperesultstitle", red, one_bg)
 
-fg_bg('LspSignatureActiveParameter', white, one_bg2)
--- #7f8490
 -- -- Cmp
 fg("CmpItemMenu", grey_menu)
 fg("CmpItemAbbrDeprecated", grey_fg .. " gui=strikethrough")
 fg("CmpItemKindMethod", purple_method)
+
 -- noice
 bg("NoiceCmdlinePopup", noice_bg)
 fg_bg("NoiceCmdlinePopupBorder", noice_fg, noice_bg)
+
 -- Terminal build in
---hl-TermCursor, hl-TermCursorNC
 bg("TermCursor", green)
 bg("TermCursorNC", red)
+
 -- window highligh
 fg_bg("WinSeparator", window_line_fg, "none")
--- fg_bg("NvimTreeVertSplit", blue, red)
+
+-- NeotestBorder
+fg("NeotestAdapterName", purple_method)
+fg("NeotestDir", green)
+fg("NeotestExpandMarker", grey)
+fg("NeotestFailed", red)
+fg("NeotestFile", nord_blue)
+fg("NeotestFocused", blue)
+fg("NeotestIndent", grey_fg)
+fg("NeotestNamespace", blue)
+fg("NeotestPassed", green)
+fg("NeotestRunning", yellow)
+fg("NeotestSkipped", nord_blue)

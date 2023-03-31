@@ -15,8 +15,8 @@ end
 function M.cur_buf_filetype_run_task(task_type)
   local filetype = api.nvim_buf_get_option(0, 'filetype')
 
-  for file, task_cmd in pairs(task_type) do
-    if (filetype == file) then
+  for filetype_index, task_cmd in pairs(task_type) do
+    if (filetype == filetype_index) then
       M.run_task_cmd(task_cmd)
       break
     end

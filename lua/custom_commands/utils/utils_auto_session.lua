@@ -24,7 +24,7 @@ M.save_session_before_leave = function(session_name)
     require('auto-session').SaveSession(session_name)
     require('auto-session').SaveSession('~/.local/share/nvim/sessions/last_session')
   else
-    print("not session found")
+    notify("not session found")
   end
 end
 

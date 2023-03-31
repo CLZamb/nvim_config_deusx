@@ -9,6 +9,7 @@ if not vim.loop.fs_stat(lazypath) then
     lazypath,
   })
 end
+
 vim.opt.rtp:prepend(lazypath)
 
 vim.g.mapleader = ' '
@@ -22,7 +23,6 @@ return require('lazy').setup({
     {import = 'plugins.core'},
     {import = 'plugins.lsp'},
   },
-  checker = { enabled = true },
   change_detection = { notify = false },
   performance = {
     rtp = {

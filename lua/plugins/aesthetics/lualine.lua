@@ -6,6 +6,8 @@ return {
     'nvim-tree/nvim-tree.lua',
   },
 
+  event = "VeryLazy",
+
   config = function()
     local config = require('plugins.config.cfg_lualine')
     local colors = require("ui.colors").get()

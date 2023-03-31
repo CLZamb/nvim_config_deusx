@@ -32,7 +32,7 @@ M.get_task_opts = function(defn)
   local option_cmd = prefix_option .. defn.command
   local cmd = {bin, option_cmd, build_dir}
 
-  if not defn.targets == nil then
+  if defn.targets ~= nil then
     table.insert(cmd, target_option)
     add_targets(cmd, defn.targets)
   end

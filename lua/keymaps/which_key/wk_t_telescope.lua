@@ -17,8 +17,11 @@ wk.register({
     },
     ["v"] = {"<cmd>lua require'core.telescope'.search_vim_files()<cr>", "search vim files"},
     ["h"] = {'<cmd>Telescope help_tags<cr>' , 'Help Tags'},
-    -- ["u"] = {'<cmd>Telescope ultisnips<cr>' , 'Ultisnips'},
     ["s"] = {'<cmd>Telescope lsp_document_symbols<cr>', 'Document Symbols'},
     ["S"] = {'<cmd>Telescope lsp_workspace_symbols<cr>', 'Workspace Symbols'},
+    ["g"] = {
+      "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input('Grep For > ')})<cr>",
+      'Workspace Symbols'
+    },
   }
 }, { prefix = "<leader>" })

@@ -8,9 +8,7 @@ wk.register({
     ["D"] = { "<cmd>lua vim.lsp.buf.declaration()<CR>" , "Go to declaration"},
     ["d"] = { "<cmd>lua vim.lsp.buf.definition()<CR>" , "Go to definition"},
     ["f"] = { "<cmd>lua vim.lsp.buf.format()<CR>" , "Formatting"},
-
     ["g"] = { "<cmd>TroubleToggle lsp_references<cr>" , "References"},
-
     ["i"] = { "<cmd>lua vim.lsp.buf.implementation()<CR>" , "Implementation"},
     ["l"] = { "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>" , "Inspect worspace folder"},
     ["n"] = { "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>" , "Go to next"},

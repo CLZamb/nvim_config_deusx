@@ -40,7 +40,13 @@ M.colors = {
   float_bg = "#2a2c36",
   winseparator_fg = "#2b2d37",
   purple_method = "#d38aea",
-  grey_menu = "#7f8490"
+  grey_menu = "#7f8490",
+  background_nvimtree = "#282a33",
+  telescope_background = "#2d3139",
+  telescope_prompt_normal = "#262a32",
+  telescope_prompt_title = "#2e3139",
+  telescopePreviewTitle = "#21242c",
+  telescopeResultsTitle = "#21242c",
 }
 
 M.get = function()

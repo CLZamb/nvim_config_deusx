@@ -2,17 +2,18 @@ return {
   'sainnhe/edge',
 
   dependencies = {
-    'nvim-treesitter/nvim-treesitter'
+    'nvim-treesitter/nvim-treesitter',
   },
 
   lazy = false, -- make sure we load this during startup if it is your main colorscheme
   priority = 1000, -- make sure to load this before all the other start plugins
+
   config = function()
+    local colors = require('ui.colors').get()
     local g = vim.g
     vim.cmd [[set background=dark]]
 
-    g.edge_show_eob = 1
-    -- Edge theme
+    -- -- Edge theme
     g.edge_style = 'aura'
     g.edge_enable_italic = true
     g.edge_diagnostic_text_highlight = true
@@ -20,8 +21,14 @@ return {
     g.edge_diagnostic_virtual_text = 'colored'
     g.edge_current_word = 'bold'
     g.edge_better_performance = true
-    -- UI CONFIGS
-    g.ui = { theme = "onedark", }
+    g.edge_show_eob = false
+    g.edge_colors_override = {
+      bg_dim = {
+        colors.background_nvimtree,
+        '250'
+      },
+    }
+    -- -- UI CONFIGS
     vim.cmd[[colorscheme edge]]
   end,
 }
