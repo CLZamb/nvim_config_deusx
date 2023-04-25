@@ -5,7 +5,7 @@ local cmp_kinds = require("ui.kinds").kind
 
 M.snippet = {
   expand = function(args)
-    require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+    vim.fn["UltiSnips#Anon"](args.body)
   end,
 }
 
@@ -34,7 +34,7 @@ M.experimental = {
 }
 
 M.sources = {
-  { name = 'luasnip',   keyword_length = 2, max_item_count = 2},
+  { name = 'ultisnips', keyword_length = 2, max_item_count = 2},
   { name = 'path',      keyword_length = 2 },
   { name = 'nvim_lsp',  keyword_length = 3, max_item_count = 5},
   { name = 'buffer',    keyword_length = 6 },

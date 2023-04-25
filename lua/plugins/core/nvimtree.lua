@@ -26,11 +26,11 @@ return {
       view = {
         adaptive_size = true,
         width = '18%',
-        hide_root_folder = true,
         side = "right",
       },
       renderer = {
         highlight_opened_files = "all",
+        root_folder_label = false,
         icons = {
           show = {
             git = false,

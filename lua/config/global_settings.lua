@@ -17,7 +17,7 @@ g.loaded_netrwPlugin = 1
 g.loaded_perl_provider = 0
 g.python_host_prog = "/usr/bin/python"
 g.python3_host_prog = "/usr/bin/python"
-g.lsp_semantic_enabled = false
+-- g.lsp_semantic_enabled = false
 o.laststatus  = 3
 -- tells the shell to use 16 24 bit colors
 o.termguicolors = true

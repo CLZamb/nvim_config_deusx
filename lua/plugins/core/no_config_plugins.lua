@@ -13,7 +13,7 @@ return {
   {'rbgrouleff/bclose.vim'},
   {'SmiteshP/nvim-navic'},
   {'rmagatti/session-lens', dependencies = {'rmagatti/auto-session', 'nvim-telescope/telescope.nvim'}},
-  {'akinsho/toggleterm.nvim', config = true},
   {'knubie/vim-kitty-navigator'},
   {'kdheepak/lazygit.nvim'},
 }
+

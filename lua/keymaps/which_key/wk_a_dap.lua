@@ -4,7 +4,7 @@ wk.register({
   ["a"] = {
     name = '+Dap',
     ["c"] = {":DapContinue<CR>" , 'Continue'},
-    ["t"] = {"lua require('dapui').toggle()<CR>" , 'Continue'},
+    ["t"] = {":lua require('dapui').toggle()<CR>" , 'toggle dapui'},
     ["s"] = {":DapTerminate<CR>" , 'Stop'},
     ["b"] = {":DapToggleBreakpoint<CR>", 'Toggle breakpoint'},
     ["i"] = {":DapStepInto<CR>", 'Step Into'},

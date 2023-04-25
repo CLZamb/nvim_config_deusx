@@ -19,5 +19,6 @@ return {
     end
 
     require('plugins.config.lsp.lsp_ui_customization')
+
   end
 }

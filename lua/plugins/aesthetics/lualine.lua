@@ -47,7 +47,6 @@ return {
         lualine_z = {'location'},
       },
       extensions = {
-        'toggleterm',
         'quickfix',
         'symbols-outline'
       },

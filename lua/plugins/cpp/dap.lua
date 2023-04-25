@@ -17,7 +17,8 @@ return {
       id = 'cppdbg',
       type = 'executable',
       -- command = cmd,
-      command = vim.fn.stdpath('data') .. '/mason/bin/OpenDebugAD7',
+      -- command = vim.fn.stdpath('data') .. '/mason/bin/OpenDebugAD7',
+      command = '/home/deusxdwm/.vscode/extensions/ms-vscode.cpptools-1.14.5-linux-x64/debugAdapters/bin/OpenDebugAD7' ,
       options = {
         detached = false
       }
@@ -28,14 +29,21 @@ return {
         name = "vscode-cpptools_launch",
         type = "cppdbg",
         request = "launch",
-        program = vim.fn.expand('%:p:h') .. '/debug/bin/Chess',
+        program = '${workspaceFolder}/debug/bin/Chess',
         -- program = function()
         --   return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/debug/bin/', 'file')
         -- end,
-        MIMode = 'gdb',
+        linux = {
+          MIMode =  "gdb",
+          miDebuggerPath = "/usr/bin/gdb",
+        },
         cwd = '${workspaceFolder}',
-        stopAtEntry = true,
+        -- stopAtEntry = true,
         externalConsole = true,
+        logging = {
+          moduleLoad = false,
+          trace =  true
+        },
       },
     }
 
