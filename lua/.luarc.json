@@ -30,5 +30,8 @@
         "/home/deusxdwm/.local/share/nvim/lazy/edge/after",
         "${3rd}/luassert/library"
     ],
-    "workspace.checkThirdParty": false
+    "workspace.checkThirdParty": false,
+    "diagnostics.disable": [
+        "different-requires"
+    ]
 }

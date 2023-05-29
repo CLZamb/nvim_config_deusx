@@ -1,7 +1,7 @@
 -- MUST BE FIRST LINE
-require('config') -- do not move
+require('settings') -- do not move
 -- plugins
 require('plugins')
-require('keymaps') -- which-key plugin required
-require('custom_commands')
+require('keymaps')
+require('custom_autocommands')
 require('ui')
