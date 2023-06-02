@@ -3,5 +3,5 @@ require('settings') -- do not move
 -- plugins
 require('plugins')
 require('keymaps')
-require('custom_autocommands')
+require('autocommands')
 require('ui')

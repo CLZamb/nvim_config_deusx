@@ -1,22 +1,24 @@
-local hi = require('ui.highlights_util')
+local highlights = require('ui.highlights_util')
 local colors = require("ui.colors").get()
 
-local yellow = colors.yellow
-local one_bg2 = colors.one_bg2
-local purple = colors.purple
-local white = colors.white
-local red = colors.red
-local blue = colors.blue
+local cmd = vim.cmd
+cmd("hi clear CursorLine")
 
-hi.fg_bg('LspSignatureActiveParameter', white, one_bg2)
-hi.fg("LspDiagnosticsSignError", red)
-hi.fg("DiagnosticError", red)
-hi.fg("LspDiagnosticsSignWarning", yellow)
-hi.fg("LspDiagnosticsVirtualTextError", red)
-hi.fg("LspDiagnosticsVirtualTextWarning", yellow)
--- Info
-hi.fg("LspDiagnosticsSignInformation", blue)
-hi.fg("LspDiagnosticsVirtualTextInformation", blue)
--- Hints
-hi.fg("LspDiagnosticsSignHint", purple)
-hi.fg("LspDiagnosticsVirtualTextHint", purple)
+local fg_colors = {
+  LspDiagnosticsSignError = colors.red,
+  DiagnosticError = colors.red,
+  LspDiagnosticsSignWarning = colors.yellow,
+  LspDiagnosticsVirtualTextError = colors.red,
+  LspDiagnosticsVirtualTextWarning = colors.yellow,
+  LspDiagnosticsSignInformation = colors.blue,
+  LspDiagnosticsVirtualTextInformation = colors.blue,
+  LspDiagnosticsSignHint = colors.purple,
+  LspDiagnosticsVirtualTextHint = colors.purple,
+}
+
+local fg_bg_colors = {
+  LspSignatureActiveParameter = { colors.white, colors.one_bg2 },
+}
+
+highlights.fg_groups(fg_colors)
+highlights.fg_bg_groups(fg_bg_colors)

@@ -1,27 +1,28 @@
-local hi = require('ui.highlights_util')
+local highlights = require('ui.highlights_util')
 local colors = require("ui.colors").get()
 
-local window_line_fg = "#42464e"
-
 local cmd = vim.cmd
-cmd"hi clear CursorLine"
--- Line number
-hi.fg("cursorlinenr", colors.white)
+cmd("hi clear CursorLine")
 
--- same it bg, so it doesn't appear
-hi.fg("EndOfBuffer", colors.one_bg)
+local fg_colors = {
+  cursorlinenr = colors.white,
+  EndOfBuffer = colors.one_bg,
+  LineNr = colors.grey,
+  NvimInternalError = colors.line,
+}
 
--- For floating windows
-hi.fg_bg("FloatBorder", colors.grey_fg, colors.float_bg)
-hi.bg("NormalFloat", colors.float_bg)
+local bg_colors = {
+  NormalFloat = colors.float_bg,
+  TermCursor = colors.green,
+  TermCursorNC = colors.red,
+}
 
-hi.fg("LineNr", colors.grey)
-hi.fg("NvimInternalError", colors.line)
-hi.fg_bg("VertSplit", colors.line, colors.line)
+local fg_bg_colors = {
+  FloatBorder = { colors.grey_fg, colors.float_bg },
+  VertSplit = { colors.line, colors.line },
+  WinSeparator = { "#42464e" , "none" },
+}
 
--- Terminal build in
-hi.bg("TermCursor", colors.green)
-hi.bg("TermCursorNC", colors.red)
-
--- window highligh
-hi.fg_bg("WinSeparator", window_line_fg, "none")
+highlights.fg_groups(fg_colors)
+highlights.bg_groups(bg_colors)
+highlights.fg_bg_groups(fg_bg_colors)

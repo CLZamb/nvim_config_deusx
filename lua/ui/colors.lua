@@ -17,14 +17,14 @@ local colors = {
   nord_blue = "#81A1C1",
   blue = "#61afef",
   yellow = "#e7c787",
-  purple = "#b4bbc8",
+  purple = "#de98fd",
   dark_purple = "#c882e7",
   teal = "#519ABA",
   orange = "#fca2aa",
   cyan = "#a3b8ef",
   float_bg = "#2a2c36",
-  lightbg2 = "#262a32",
   lightbg = "#2d3139",
+  lightbg2 = "#262a32",
 }
 
 M.get = function()
